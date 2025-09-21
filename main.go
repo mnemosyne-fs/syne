@@ -64,7 +64,10 @@ var Pin *pin.Pin
 
 func main() {
 	var err error
-	ctx := kong.Parse(&Cli)
+	ctx := kong.Parse(&Cli,
+		kong.HelpOptions{
+			Compact: true,
+		})
 
 	Reg, err = ParseRegistry()
 	if err != nil {
